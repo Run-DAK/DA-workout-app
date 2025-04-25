@@ -1,0 +1,25 @@
+{
+  "name": "workout-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.4",
+    "bcryptjs": "^3.0.2",
+    "connect-session-sequelize": "^7.1.7",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.2",
+    "express-session": "^1.18.1",
+    "mysql2": "^3.14.0",
+    "sequelize": "^6.37.7",
+    "tailwindcss": "^4.1.4"
+  }
+}

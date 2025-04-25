@@ -1,0 +1,60 @@
+<h2 class="text-3xl font-bold mb-6 text-center">Dashboard</h2>
+
+<!--new workout form-->
+<form id="newWorkoutForm" class="mb-6 bg-white p-6 rounded-lg shadow-md max-w-xl mx-auto">
+  <h3 class="text-xl font-semibold mb-4">Add New Workout</h3>
+
+  <input 
+    name="title" 
+    placeholder="Workout Title" 
+    required 
+    class="w-full p-3 border border-gray-300 rounded mb-4"
+  />
+  <input 
+    name="date" 
+    type="date" 
+    required 
+    class="w-full p-3 border border-gray-300 rounded mb-4"
+  />
+  <textarea 
+    name="description" 
+    placeholder="Description" 
+    class="w-full p-3 border border-gray-300 rounded mb-4"
+    rows="4"
+  ></textarea>
+  <button 
+    type="submit" 
+    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded"
+  >
+    Add Workout
+  </button>
+</form>
+
+<!--line divider-->
+<hr class="my-10 max-w-xl mx-auto">
+<!--workout list-->
+<h3 class="text-2xl font-bold text-center mb-4">Your Workouts</h3>
+<ul id="workoutList" class="max-w-xl mx-auto space-y-4">
+  {{#each workouts}}
+    <li data-id="{{this.id}}" class="bg-white p-4 rounded-lg shadow flex flex-col sm:flex-row sm:justify-between sm:items-center">
+      <div>
+        <h4 class="text-lg font-semibold">{{this.title}}</h4>
+        <p class="text-sm text-gray-500">{{this.date}}</p>
+        <p class="mt-1">{{this.description}}</p>
+      </div>
+      <button 
+        class="delete-btn mt-4 sm:mt-0 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded text-sm"
+      >
+        Delete
+      </button>
+    </li>
+  {{/each}}
+</ul>
+<!--logout-->
+<form method="POST" action="/logout" class="mt-10 text-center">
+  <button class="bg-gray-700 hover:bg-gray-800 text-white px-6 py-2 rounded">
+    Logout
+  </button>
+</form>
+
+<script src="/js/dashboard.js"></script>

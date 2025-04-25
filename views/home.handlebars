@@ -1,0 +1,43 @@
+<div class="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4">
+  <h1 class="text-4xl font-bold mb-6 text-center text-blue-700">DA's Workout Planner</h1>
+  <!--render only if user is logged in-->
+  {{#if loggedIn}}
+    <div class="flex flex-col items-center gap-4">
+      <a href="/dashboard" class="text-blue-600 hover:underline text-lg font-medium">My Dashboard</a>
+      <form method="POST" action="/logout">
+        <button class="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded shadow">Logout</button>
+      </form>
+    </div>
+    <!--deny access if user isn't-->
+  {{else}}
+    <form method="POST" action="/login" class="bg-white shadow-md rounded p-6 max-w-sm w-full">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Login</h2>
+      <!--input fields-->
+      <input 
+        name="username" 
+        placeholder="Username" 
+        required 
+        class="w-full p-3 border border-gray-300 rounded mb-4"
+      />
+
+      <input 
+        name="password" 
+        type="password" 
+        placeholder="Password" 
+        required 
+        class="w-full p-3 border border-gray-300 rounded mb-4"
+      />
+
+      <button 
+        type="submit" 
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded"
+      >
+        Login
+      </button>
+    </form>
+    <!-- prompt for users w/o account-->
+    <p class="mt-4 text-sm text-gray-600">
+      Don't have an account? <a href="/register" class="text-blue-600 hover:underline">Make One!</a>
+    </p>
+  {{/if}}
+</div>
